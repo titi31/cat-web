@@ -9,7 +9,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }    from '@angular/forms';
 const routes: Routes = [{ path: 'produit', component: ProductsComponent },
-  {path: 'add', component: AddProductComponent}];
+  {path: 'add', component: AddProductComponent},
+  {path:'edit/:id',component:ProduitComponent}
+  ];
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CatalogueService } from '../services/catalogue.service'
+import { Routes, RouterModule,Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -13,7 +14,7 @@ export class ProductsComponent  {
   public totalPages:number;
   public pages: Array<number>;
   public currentKeyword:string;
-  constructor(private catService:CatalogueService) {
+  constructor(private catService:CatalogueService,private router:Router) {
   }
 
 
@@ -58,6 +59,10 @@ export class ProductsComponent  {
   if(conf)
       this.catService.deleteResource(p._links.self.href).subscribe(
       data => {this.chercherProduits()},err=>{console.log(err)});
+  }
+  onEditProduct(p){
+  let url=p._links.self.href
+    this.router.navigateByUrl("/edit/"+btoa(url));
   }
   /*ngOnInit() {
   }*/

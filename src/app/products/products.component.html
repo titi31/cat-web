@@ -22,7 +22,8 @@
           <td>{{book.designation}}</td>
           <td>{{book.price | number: '0.2'}}</td>
           <td>{{book.quantity}}</td>
-          <td><a class="btn btn-danger" (click)="onDeleteProduct(book)">Delete</a></td>
+          <td><a class="btn btn-danger" (click)="onDeleteProduct(book)">Delete</a><p></p></td>
+           <td> <a class="btn btn-success" (click)="onEditProduct(book)">Edit</a><p></p></td>
         </tr>
       </table>
       <ul *ngIf="pages" class="nav nav-pills">
